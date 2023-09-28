@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 posts = [
     {
@@ -22,3 +22,6 @@ def contactpage(request):
         return render(request, 'contact.html', {'articles': posts, "page": "index"})
     else:
         print(request.POST)
+        with open('./contact_results.txt', 'a', encoding='utf-8') as file:
+            file.writelines(f"Name: {request.POST['name']}, email: {request.POST['email']}, Subject: {request.POST['subject']}, Message: {request.POST['message']}")
+        return redirect(contactpage)

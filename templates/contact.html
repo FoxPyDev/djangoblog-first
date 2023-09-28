@@ -57,9 +57,10 @@
                                 <textarea class="form-control mr-0 ml-auto" name="message" id="message" rows="8" required></textarea>
                             </div>
                         </div>
+                        {% csrf_token %}
                         <div class="form-group row text-right">
                             <div class="col-12">
-                                <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>
+                                <button type="submit" class="tm-btn tm-btn-primary tm-btn-small">Submit</button>
                             </div>
                         </div>
                     </form>
